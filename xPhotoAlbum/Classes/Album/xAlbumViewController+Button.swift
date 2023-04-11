@@ -73,16 +73,19 @@ extension xAlbumViewController {
     {
         print("\(#function) in \(type(of: self))")
         self.alertChooseAlbum.dismiss() 
-        let photoList = self.getChoosePhotoArray()
-        var dataList = [Data]()
-        for photo in photoList {
+        let array = self.getChoosePhotoArray()
+        var list = [xPhoto]()
+        for photo in array {
+            let obj = xPhoto()  // 只拷贝需要的成员变量
+            obj.xAsset = photo.xAsset
+            obj.xThumbImage = photo.xThumbImage
+            obj.xImageData = photo.xCompressImageData
             if self.isUseOriginal {
-                dataList.append(photo.xOriginalImageData)
-            } else {
-                dataList.append(photo.xCompressImageData)
+                obj.xImageData = photo.xOriginalImageData
             }
+            list.append(obj)
         }
-        self.choosePhotosHandler?(dataList)
+        self.choosePhotosHandler?(list)
         self.navigationController?.popViewController(animated: true)
     }
     

@@ -8,10 +8,8 @@
 import Foundation
 import Photos
 
-class xPhoto: NSObject {
+public class xPhoto: NSObject {
     
-    /// 相片资源
-    var xAsset = PHAsset()
     /// 是否选中
     var xIsChoose = false
     /// 选中编号
@@ -20,6 +18,18 @@ class xPhoto: NSObject {
     var xIsGIF = false
     /// 图片路径
     var xImagePath = ""
+    /// 相片资源
+    public var xAsset = PHAsset()
+    /// 缩略图
+    public var xThumbImage : UIImage?
+    /// 图片数据
+    public var xImageData = Data()
+    /// 原始图片数据
+    var xOriginalImageData = Data()
+    var xOriginalImageDataSize = 0
+    /// 压缩图片数据
+    var xCompressImageData = Data()
+    var xCompressImageDataSize = 0
     
     // MARK: - 实例化对象
     override init() {
@@ -47,7 +57,6 @@ class xPhoto: NSObject {
     }
     
     // MARK: - 获取缩略图
-    var xThumbImage : UIImage?
     /// 获取缩略图
     func getThumbImage(targetSize : CGSize,
                        completed : @escaping (UIImage?) -> Void)
@@ -68,11 +77,7 @@ class xPhoto: NSObject {
             completed(image)
         }
     }
-    // MARK: - 获取原图
-    var xOriginalImageData = Data()
-    var xOriginalImageDataSize = 0
-    var xCompressImageData = Data()
-    var xCompressImageDataSize = 0
+    // MARK: - 获取原图、压缩图
     /// 获取原图
     func reloadImageData(completed : @escaping () -> Void)
     { 

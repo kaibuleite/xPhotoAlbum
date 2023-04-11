@@ -10,7 +10,7 @@ import UIKit
 public class xAlbumViewController: UIViewController {
     
     // MARK: - Handler
-    public typealias xHandlerChoosePhotos = ([Data]) -> Void
+    public typealias xHandlerChoosePhotos = ([xPhoto]) -> Void
     
     // MARK: - IBOutlet Property
     @IBOutlet weak var changeAlbumBtn: UIButton!
