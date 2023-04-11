@@ -1,0 +1,28 @@
+PODS:
+  - xDefine (1.0.6)
+  - xExtension (1.1.6):
+    - xDefine
+  - xPhotoAlbum (1.0.0):
+    - xDefine
+    - xExtension
+
+DEPENDENCIES:
+  - xPhotoAlbum (from `../`)
+
+SPEC REPOS:
+  https://github.com/kaibuleite/xSpecs.git:
+    - xDefine
+    - xExtension
+
+EXTERNAL SOURCES:
+  xPhotoAlbum:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  xDefine: 74915e20fdc2bb56dc50e981684d532baa7200ab
+  xExtension: ad23e756488b0b352b253626375ec6a77459538b
+  xPhotoAlbum: a98a03b34028509687367a6eceaaa27f8d76c33b
+
+PODFILE CHECKSUM: 6d8ff27cebaff866caa98dde0486be3c85c65a72
+
+COCOAPODS: 1.11.3

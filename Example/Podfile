@@ -1,6 +1,11 @@
+# 清华大学源
+source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
+# 私有源
+source 'https://github.com/kaibuleite/xSpecs.git'
+
 use_frameworks!
 
-platform :ios, '10.0'
+platform :ios, '12.0'
 
 target 'xPhotoAlbum_Example' do
   pod 'xPhotoAlbum', :path => '../'

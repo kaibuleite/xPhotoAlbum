@@ -1,0 +1,33 @@
+{
+  "name": "xPhotoAlbum",
+  "version": "1.0.0",
+  "summary": "Swift xPhotoAlbum.",
+  "swift_versions": "5",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/kaibuleite/xPhotoAlbum",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "kaibuleite": "177955297@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/kaibuleite/xPhotoAlbum.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "source_files": "xPhotoAlbum/Classes/**/*",
+  "resources": "xPhotoAlbum/Assets/**/*",
+  "dependencies": {
+    "xDefine": [
+
+    ],
+    "xExtension": [
+
+    ]
+  },
+  "swift_version": "5"
+}

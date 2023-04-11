@@ -1,0 +1,6 @@
+framework module xPhotoAlbum {
+  umbrella header "xPhotoAlbum-umbrella.h"
+
+  export *
+  module * { export * }
+}

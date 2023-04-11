@@ -7,17 +7,27 @@
 //
 
 import UIKit
+import xPhotoAlbum
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.navigationController?.navigationBar.isHidden = true
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // MARK: - 选择相片
+    @IBAction func choosePhotoBtnClick()
+    {
+        print("\(#function) in \(type(of: self))")
+        let vc = xAlbumViewController.xDefaultViewController()
+        vc.maxCount = 4
+        vc.addChoosePhotos {
+            (list) in
+            print("选中图片")
+            print(list)
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
 }

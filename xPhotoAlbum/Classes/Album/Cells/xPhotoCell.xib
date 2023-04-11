@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="xPhotoCell" customModule="xPhotoAlbum" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="168" height="155"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="168" height="155"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KMx-vg-rrE">
+                        <rect key="frame" x="0.0" y="0.0" width="168" height="155"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mEk-Gf-sI3">
+                        <rect key="frame" x="0.0" y="0.0" width="168" height="155"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l6k-Sl-u9M">
+                                <rect key="frame" x="0.0" y="0.0" width="168" height="155"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xPhotoAlbum_choose.png" translatesAutoresizingMaskIntoConstraints="NO" id="1cB-am-RTV">
+                                <rect key="frame" x="141" y="8" width="19" height="19"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qkl-DN-zuR">
+                                <rect key="frame" x="8" y="8" width="7.5" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GIF" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fi-lL-0N6">
+                                <rect key="frame" x="8" y="127.5" width="24.5" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="l6k-Sl-u9M" firstAttribute="leading" secondItem="mEk-Gf-sI3" secondAttribute="leading" id="1Gy-T1-gcm"/>
+                            <constraint firstAttribute="bottom" secondItem="l6k-Sl-u9M" secondAttribute="bottom" id="6PO-kS-6m8"/>
+                            <constraint firstAttribute="bottom" secondItem="2fi-lL-0N6" secondAttribute="bottom" constant="8" id="BMI-18-24p"/>
+                            <constraint firstItem="l6k-Sl-u9M" firstAttribute="top" secondItem="mEk-Gf-sI3" secondAttribute="top" id="Kqa-dP-eS8"/>
+                            <constraint firstAttribute="trailing" secondItem="l6k-Sl-u9M" secondAttribute="trailing" id="UKQ-gC-Slr"/>
+                            <constraint firstItem="Qkl-DN-zuR" firstAttribute="top" secondItem="mEk-Gf-sI3" secondAttribute="top" constant="8" id="XrH-Sn-oVA"/>
+                            <constraint firstItem="1cB-am-RTV" firstAttribute="top" secondItem="mEk-Gf-sI3" secondAttribute="top" constant="8" id="Zrz-dQ-UXT"/>
+                            <constraint firstAttribute="trailing" secondItem="1cB-am-RTV" secondAttribute="trailing" constant="8" id="erZ-N2-txW"/>
+                            <constraint firstItem="Qkl-DN-zuR" firstAttribute="leading" secondItem="mEk-Gf-sI3" secondAttribute="leading" constant="8" id="iiM-Ri-3yp"/>
+                            <constraint firstItem="2fi-lL-0N6" firstAttribute="leading" secondItem="mEk-Gf-sI3" secondAttribute="leading" constant="8" id="wHB-gg-rjZ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="mEk-Gf-sI3" secondAttribute="trailing" id="Lrv-lI-wMw"/>
+                <constraint firstItem="KMx-vg-rrE" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="RZW-wW-JzR"/>
+                <constraint firstItem="mEk-Gf-sI3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="fUv-MG-ODz"/>
+                <constraint firstItem="KMx-vg-rrE" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="fZy-XF-YLJ"/>
+                <constraint firstAttribute="bottom" secondItem="KMx-vg-rrE" secondAttribute="bottom" id="ltX-vH-mg4"/>
+                <constraint firstAttribute="bottom" secondItem="mEk-Gf-sI3" secondAttribute="bottom" id="nd6-O3-Xha"/>
+                <constraint firstAttribute="trailing" secondItem="KMx-vg-rrE" secondAttribute="trailing" id="rlK-1z-aFf"/>
+                <constraint firstItem="mEk-Gf-sI3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="uMR-i1-Mna"/>
+            </constraints>
+            <size key="customSize" width="168" height="155"/>
+            <connections>
+                <outlet property="chooseFlagIcon" destination="1cB-am-RTV" id="gbo-LO-3tC"/>
+                <outlet property="chooseNumberLbl" destination="Qkl-DN-zuR" id="uli-1g-3nG"/>
+                <outlet property="chooseView" destination="l6k-Sl-u9M" id="Qqd-tq-0u1"/>
+                <outlet property="gifFlagLbl" destination="2fi-lL-0N6" id="Bs8-6d-qDo"/>
+                <outlet property="thumbIcon" destination="KMx-vg-rrE" id="uYz-j2-GJq"/>
+            </connections>
+            <point key="canvasLocation" x="217.39130434782609" y="134.26339285714286"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="xPhotoAlbum_choose.png" width="19" height="19"/>
+    </resources>
+</document>
