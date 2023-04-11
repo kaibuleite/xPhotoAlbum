@@ -18,8 +18,6 @@ public class xPhoto: NSObject {
     var xIsGIF = false
     /// 图片路径
     var xImagePath = ""
-    /// 相片资源
-    public var xAsset = PHAsset()
     /// 缩略图
     public var xThumbImage : UIImage?
     /// 图片数据
@@ -30,6 +28,15 @@ public class xPhoto: NSObject {
     /// 压缩图片数据
     var xCompressImageData = Data()
     var xCompressImageDataSize = 0
+    /// 相片资源
+    public var xAsset = PHAsset() {
+        didSet {
+            // 异步加载资源
+            DispatchQueue.global().async {
+                self.loadResource()
+            } 
+        }
+    }
     
     // MARK: - 实例化对象
     public override init() {
@@ -37,8 +44,7 @@ public class xPhoto: NSObject {
     }
     init(from asset: PHAsset) {
         self.xAsset = asset
-        let resources = PHAssetResource.assetResources(for: asset)
-//        print(resources)
+        /*
         for resource in resources {
             // 根据统一类型标示符 kUTTypeG 判断图片类型 GIF
             if self.xIsGIF == false {
@@ -53,6 +59,20 @@ public class xPhoto: NSObject {
                     self.xImagePath = url.absoluteString
                 }
             }
+        }
+         */
+    }
+    private func loadResource()
+    {
+        let resources = PHAssetResource.assetResources(for: self.xAsset)
+//        print(resources)
+        guard let resource = resources.first else { return }
+        let uti = resource.uniformTypeIdentifier
+        if uti == "com.compuserve.gif" {
+            self.xIsGIF = true
+        }
+        if let url = resource.value(forKey: "privateFileURL") as? URL {
+            self.xImagePath = url.absoluteString
         }
     }
     

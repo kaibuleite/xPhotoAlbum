@@ -20,14 +20,21 @@ class ViewController: UIViewController {
     @IBAction func choosePhotoBtnClick()
     {
         print("\(#function) in \(type(of: self))")
-        let vc = xAlbumViewController.xDefaultViewController()
-        vc.maxCount = 4
-        vc.addChoosePhotos {
+        
+        xAlbumViewController.push(from: self, max: 4) {
             (list) in
             print("选中图片")
             print(list)
         }
-        self.navigationController?.pushViewController(vc, animated: true)
+        
+//        let vc = xAlbumViewController.xDefaultViewController()
+//        vc.maxCount = 4
+//        vc.addChoosePhotos {
+//            (list) in
+//            print("选中图片")
+//            print(list)
+//        }
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
 
 }

@@ -63,6 +63,9 @@ class xPhotoAlbumManager: PHCachingImageManager {
             // 自适应宽高
             size = self.getImageAutoSize(for: asset, quality: 1)
         }
+        let scale = UIScreen.main.scale
+        size.width *= scale
+        size.height *= scale
         let reqID = shared.requestImage(for: asset, targetSize: size, contentMode: contentMode, options: options) {
             (image, info) in
             shared.reqList["\reqID"] = nil

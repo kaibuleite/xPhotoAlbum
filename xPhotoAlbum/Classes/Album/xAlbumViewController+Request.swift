@@ -27,10 +27,28 @@ extension xAlbumViewController {
 //        let allPhotos = PHAsset.fetchAssets(with: allPhotoOptions)
 //        let userCollections = PHCollectionList.fetchTopLevelUserCollections(with: nil) 
         // 获取相册列表
-        let systemAlbums = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: nil)
-        let smartAlbums = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .any, options: nil)
-        let albums = [smartAlbums, systemAlbums]
-        self.reloadAlbumsData(albums)
+        let systemCollections = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: nil)
+        let smartCollections = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .any, options: nil)
+        let collectionsList = [smartCollections, systemCollections]
+        // 数据过滤、排序
+        var albumList = [xAlbum]()
+        var isReload = false
+        for collections in collectionsList {
+            let count = collections.count
+            guard count > 0 else { continue }
+            for i in 0 ..< count {
+                let collection = collections.object(at: i)
+                let album = xAlbum.init(from: collection)
+                // 剔除没有照片的相册
+                guard album.xPhotoCount > 0 else { continue }
+                albumList.append(album)
+                // 先加载1个相册，防止卡顿
+                guard !isReload else { continue }
+                self.reloadAlbumData(album)
+                isReload = true
+            }
+        }
+        self.reloadAlbumsData(albumList) 
     }
 }
 

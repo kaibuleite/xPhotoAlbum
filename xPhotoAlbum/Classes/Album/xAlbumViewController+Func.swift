@@ -16,6 +16,18 @@ extension xAlbumViewController {
         self.choosePhotosHandler = handler
     } 
     
+    // MARK: - push界面
+    /// push界面
+    public static func push(from parent : UIViewController,
+                            max count : Int,
+                            choose handler : @escaping xAlbumViewController.xHandlerChoosePhotos)
+    {
+        let album = xAlbumViewController.xDefaultViewController()
+        album.maxCount = count
+        album.addChoosePhotos(handler: handler)
+        parent.navigationController?.pushViewController(album, animated: true)
+    }
+    
     // MARK: - 获取选中的照片
     /// 获取选中的照片
     func getChoosePhotoArray() -> [xPhoto]

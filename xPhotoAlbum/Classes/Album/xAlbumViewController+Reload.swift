@@ -13,29 +13,17 @@ extension xAlbumViewController {
     
     // MARK: - 重新加载相册数据
     /// 重新加载相册数据
-    func reloadAlbumsData(_ albumsList : [PHFetchResult<PHAssetCollection>])
+    func reloadAlbumsData(_ albumsList : [xAlbum])
     {
-        var list = [xAlbum]()
-        for albums in albumsList {
-            let count = albums.count
-            for i in 0 ..< count {
-                let collection = albums.object(at: i)
-                let album = xAlbum.init(from: collection)
-                // 剔除没有照片的相册
-                guard album.xPhotoCount > 0 else { continue }
-                list.append(album)
-            }
-        }
-        let albumCount = list.count
-        print("相册数【\(albumCount)】")
+        let albumCount = albumsList.count
         guard albumCount > 0 else {
             "没有相册数据".xAlertTip()
             self.navigationController?.popViewController(animated: true)
             return
         }
-        self.alertChooseAlbum.reloadAlbumsData(list)
+        self.alertChooseAlbum.reloadAlbumsData(albumsList)
         // 默认加载第一个相册
-        guard let first = list.first else { return }
+        guard let first = albumsList.first else { return }
         self.reloadAlbumData(first)
     }
     
@@ -44,12 +32,13 @@ extension xAlbumViewController {
     {
         guard self.currentAlbum != album else { return }
         // 修改相册名称
-        let title = "\(album.xName)(\(album.xPhotoCount))"
+        let title = "   \(album.xName)(\(album.xPhotoCount))   "
         self.changeAlbumBtn.setTitle(title, for: .normal)
         self.changeAlbumBtn.isHidden = false
         // 缓存相册相片
         let photoList = album.xPhotoList
         let assetList = photoList.map { return $0.xAsset }
+        // 缓存相片
         xPhotoAlbumManager.startCachingImages(for: assetList)
         // 刷新相册相片
         self.currentAlbum = album

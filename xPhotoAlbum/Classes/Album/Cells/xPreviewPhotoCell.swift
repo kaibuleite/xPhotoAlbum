@@ -13,12 +13,13 @@ class xPreviewPhotoCell: UICollectionViewCell {
     @IBOutlet public weak var contentScroll: xPreviewPhotoScroll!
     
     // MARK: - Public Property
-    var imageIcon : UIImageView?
+    var imageIcon = UIImageView()
     
     // MARK: - Override Func
     override func awakeFromNib() {
         super.awakeFromNib()
 //        self.backgroundColor = .xNewRandom(alpha: 0.3)
+        self.contentScroll.addSubview(self.imageIcon)
     }
     
     // MARK: - 内容填充
@@ -26,13 +27,24 @@ class xPreviewPhotoCell: UICollectionViewCell {
     func setContentData(_ photo: xPreviewPhoto)
     {
         self.contentScroll.setZoomScale(1, animated: false)
-        if self.imageIcon == nil {
-            let icon = UIImageView(frame: self.bounds)
-            icon.contentMode = .scaleAspectFit
-            self.contentScroll.addSubview(icon)
-            self.imageIcon = icon
+        var frame = self.bounds
+        let image = photo.xImage
+        let imgW = image?.size.width ?? 1
+        let imgH = image?.size.height ?? 1
+        let scaleH = frame.width * imgH / imgW
+        if scaleH > frame.height {
+            frame.size.height = scaleH
         }
-        self.imageIcon?.image = photo.xImage
+        self.imageIcon.frame = frame
+        if imgW >= imgH {
+            // 宽>高，高度设为屏幕高度，宽度自适应
+            self.imageIcon.contentMode = .scaleAspectFit
+        } else {
+            // 高>宽，宽度设为屏幕高度，高度自适应
+            self.imageIcon.contentMode = .scaleAspectFill
+        }
+        self.imageIcon.image = image
+        self.contentScroll.contentSize = .init(width: 0, height: frame.height)
     }
     
 }

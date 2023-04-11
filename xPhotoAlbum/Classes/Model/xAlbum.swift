@@ -16,10 +16,10 @@ class xAlbum: NSObject {
     var xName = ""
     /// 封面
     var xThumbPhoto = xPhoto()
-    /// 照片信息
-    var xPhotoList = [xPhoto]()
     /// 照片数量
     var xPhotoCount = 0
+    /// 照片信息
+    var xPhotoList = [xPhoto]()
     
     // MARK: - 实例化对象
     override init() {
@@ -32,16 +32,22 @@ class xAlbum: NSObject {
         options.predicate = NSPredicate(format:"mediaType = %d", PHAssetMediaType.image.rawValue)
         let assets = PHAsset.fetchAssets(in: collection, options: options)
         let count = assets.count
+        // 保存数据
+        self.xCollection = collection
+        self.xPhotoCount = count
+        self.xName = collection.localizedTitle ?? "" 
+        // 保存相片
         var photoList = [xPhoto]()
         for i in 0 ..< count {
+            print("开始加载照片\(count)\(i)\t\(Date())")
             let asset = assets.object(at: i)
+            print("照片\(count)-\(i)加载完成\t\(Date())")
             let photo = xPhoto.init(from: asset)
+            print("照片\(count)-\(i)初始化完成\t\(Date())")
             photoList.append(photo)
         }
-        self.xCollection = collection
-        self.xName = collection.localizedTitle ?? ""
+        print("保存相片完成\t\(Date())")
         self.xPhotoList = photoList
-        self.xPhotoCount = count
         if let obj = photoList.last {
             self.xThumbPhoto = obj
         }
