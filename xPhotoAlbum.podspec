@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'xPhotoAlbum'
-  s.version          = '1.0.3'
+  s.version          = '1.0.4'
   s.summary          = 'Swift xPhotoAlbum.'
   s.swift_version    = '5'      # Swift版本号
 

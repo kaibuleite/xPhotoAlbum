@@ -17,7 +17,9 @@ public class xPhoto: NSObject {
     /// GIF
     var xIsGIF = false
     /// 图片路径
-    var xImagePath = ""
+    public var xImagePath = ""
+    /// 图片名称
+    public var xImageName = ""
     /// 缩略图
     public var xThumbImage : UIImage?
     /// 图片数据
@@ -74,6 +76,7 @@ public class xPhoto: NSObject {
         if let url = resource.value(forKey: "privateFileURL") as? URL {
             self.xImagePath = url.absoluteString
         }
+        self.xImageName = resource.originalFilename
     }
     
     // MARK: - 获取缩略图
