@@ -32,7 +32,7 @@ public class xPhoto: NSObject {
     var xCompressImageDataSize = 0
     
     // MARK: - 实例化对象
-    override init() {
+    public override init() {
         super.init()
     }
     init(from asset: PHAsset) {
