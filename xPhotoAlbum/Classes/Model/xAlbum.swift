@@ -39,14 +39,10 @@ class xAlbum: NSObject {
         // 保存相片
         var photoList = [xPhoto]()
         for i in 0 ..< count {
-            print("开始加载照片\(count)\(i)\t\(Date())")
             let asset = assets.object(at: i)
-            print("照片\(count)-\(i)加载完成\t\(Date())")
             let photo = xPhoto.init(from: asset)
-            print("照片\(count)-\(i)初始化完成\t\(Date())")
             photoList.append(photo)
-        }
-        print("保存相片完成\t\(Date())")
+        } 
         self.xPhotoList = photoList
         if let obj = photoList.last {
             self.xThumbPhoto = obj
