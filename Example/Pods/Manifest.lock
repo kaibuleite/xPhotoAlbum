@@ -1,8 +1,8 @@
 PODS:
-  - xDefine (1.0.6)
-  - xExtension (1.1.6):
+  - xDefine (1.0.7)
+  - xExtension (1.1.8):
     - xDefine
-  - xPhotoAlbum (1.0.0):
+  - xPhotoAlbum (1.0.6):
     - xDefine
     - xExtension
 
@@ -19,10 +19,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  xDefine: 74915e20fdc2bb56dc50e981684d532baa7200ab
-  xExtension: ad23e756488b0b352b253626375ec6a77459538b
-  xPhotoAlbum: a98a03b34028509687367a6eceaaa27f8d76c33b
+  xDefine: e9216a8c29a4a5abce78630e311449182c79a7f3
+  xExtension: 410b32f4a0377e4962082c7d1315b4b77454f7aa
+  xPhotoAlbum: e48e543e7a78c036f29595adffad5e3482730f6d
 
-PODFILE CHECKSUM: 6d8ff27cebaff866caa98dde0486be3c85c65a72
+PODFILE CHECKSUM: 7755dc3423b604735d6c632b37d20164258b2b71
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.15.2
